@@ -7,7 +7,8 @@ import { Project } from '../../../core/models/project.model';
 @Component({
   selector: 'app-project-form',
   templateUrl: './project-form.component.html',
-  styleUrls: ['./project-form.component.scss']
+  styleUrls: ['./project-form.component.scss'],
+  standalone: false,
 })
 export class ProjectFormComponent implements OnInit {
   projectForm!: FormGroup; // Form for project inputs

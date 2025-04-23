@@ -5,7 +5,8 @@ import { Project } from '../../../core/models/project.model';
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss']
+  styleUrls: ['./project-list.component.scss'],
+  standalone: false,
 })
 export class ProjectListComponent implements OnInit {
   projects: Project[] = []; // Array to store projects
