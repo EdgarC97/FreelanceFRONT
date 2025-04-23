@@ -1,0 +1,160 @@
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      
+      h1 {
+        margin: 0;
+      }
+      
+      .btn-create {
+        padding: 0.75rem 1.5rem;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        
+        &:hover {
+          background-color: #3a7bc8;
+        }
+      }
+    }
+    
+    .loading, .error-message, .no-projects {
+      text-align: center;
+      padding: 2rem;
+      
+      p {
+        margin-bottom: 1.5rem;
+      }
+    }
+    
+    .error-message {
+      color: #e74c3c;
+    }
+    
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      
+      .project-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        
+        .project-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 1rem;
+          
+          h2 {
+            margin: 0;
+            font-size: 1.25rem;
+          }
+          
+          .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+          
+          .status-pending {
+            background-color: #f39c12;
+            color: white;
+          }
+          
+          .status-progress {
+            background-color: #3498db;
+            color: white;
+          }
+          
+          .status-completed {
+            background-color: #2ecc71;
+            color: white;
+          }
+          
+          .status-cancelled {
+            background-color: #e74c3c;
+            color: white;
+          }
+        }
+        
+        .project-description {
+          margin-bottom: 1rem;
+          flex-grow: 1;
+          color: #666;
+        }
+        
+        .project-dates {
+          margin-bottom: 1.5rem;
+          font-size: 0.875rem;
+          
+          .date-label {
+            font-weight: 500;
+            color: #333;
+          }
+        }
+        
+        .project-actions {
+          display: flex;
+          gap: 0.5rem;
+          
+          a, button {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.875rem;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          
+          .btn-view {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            
+            &:hover {
+              background-color: #e9ecef;
+            }
+          }
+          
+          .btn-edit {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            
+            &:hover {
+              background-color: #3a7bc8;
+            }
+          }
+          
+          .btn-delete {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            
+            &:hover {
+              background-color: #c0392b;
+            }
+          }
+        }
+      }
+    }
+  }
+  

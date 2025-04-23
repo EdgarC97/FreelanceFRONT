@@ -1,6 +1,6 @@
 // Project interface defines the structure for project data
 export interface Project {
-    id?: number;        // Optional as it might not be present during creation
+    id: number;        // Optional as it might not be present during creation
     title: string;      // Project title
     description: string; // Project description
     start_date: string; // Project start date (in string format for API compatibility)

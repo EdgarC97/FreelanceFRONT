@@ -1,6 +1,6 @@
 // ProjectFile interface defines the structure for file data
 export interface ProjectFile {
-    id?: number;        // Optional as it might not be present during upload
+    id: number;        // Optional as it might not be present during upload
     project_id: number; // ID of the project this file belongs to
     filename: string;   // Server-side filename (usually generated)
     original_filename: string; // Original filename from the user's system

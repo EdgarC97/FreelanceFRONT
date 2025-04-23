@@ -1,1 +1,50 @@
-<p>project-list works!</p>
+<div class="projects-container">
+    <div class="projects-header">
+      <h1>My Projects</h1>
+      <a routerLink="/projects/new" class="btn-create">Create New Project</a>
+    </div>
+    
+    <div *ngIf="loading" class="loading">
+      Loading projects...
+    </div>
+    
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="!loading && !error && projects.length === 0" class="no-projects">
+      <p>You don't have any projects yet. Create your first project to get started!</p>
+      <a routerLink="/projects/new" class="btn-create">Create New Project</a>
+    </div>
+    
+    <div *ngIf="!loading && projects.length > 0" class="projects-list">
+      <div *ngFor="let project of projects" class="project-card">
+        <div class="project-header">
+          <h2>{{ project.title }}</h2>
+          <span [class]="'status-badge ' + getStatusClass(project.status)">
+            {{ project.status }}
+          </span>
+        </div>
+        
+        <p class="project-description">{{ project.description }}</p>
+        
+        <div class="project-dates">
+          <div>
+            <span class="date-label">Start:</span> 
+            <span>{{ project.start_date | date:'mediumDate' }}</span>
+          </div>
+          <div>
+            <span class="date-label">Delivery:</span> 
+            <span>{{ project.delivery_date | date:'mediumDate' }}</span>
+          </div>
+        </div>
+        
+        <div class="project-actions">
+          <a [routerLink]="['/projects', project.id]" class="btn-view">View</a>
+          <a [routerLink]="['/projects/edit', project.id]" class="btn-edit">Edit</a>
+          <button (click)="deleteProject(project.id)" class="btn-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

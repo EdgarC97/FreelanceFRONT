@@ -1,1 +1,97 @@
-<p>project-form works!</p>
+<div class="project-form-container">
+    <div class="back-link">
+      <a routerLink="/projects">&larr; Back to Projects</a>
+    </div>
+    
+    <div class="form-card">
+      <h1>{{ isEditMode ? 'Edit Project' : 'Create New Project' }}</h1>
+      
+      <div *ngIf="loading" class="loading">
+        Loading project details...
+      </div>
+      
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+      
+      <form *ngIf="!loading" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Project Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            formControlName="title" 
+            placeholder="Enter project title"
+          >
+          <div class="error" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">
+            <span *ngIf="projectForm.get('title')?.errors?.['required']">Title is required</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea 
+            id="description" 
+            formControlName="description" 
+            placeholder="Enter project description"
+            rows="4"
+          ></textarea>
+          <div class="error" *ngIf="projectForm.get('description')?.invalid && projectForm.get('description')?.touched">
+            <span *ngIf="projectForm.get('description')?.errors?.['required']">Description is required</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="start_date">Start Date</label>
+          <input 
+            type="date" 
+            id="start_date" 
+            formControlName="start_date"
+          >
+          <div class="error" *ngIf="projectForm.get('start_date')?.invalid && projectForm.get('start_date')?.touched">
+            <span *ngIf="projectForm.get('start_date')?.errors?.['required']">Start date is required</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="delivery_date">Delivery Date</label>
+          <input 
+            type="date" 
+            id="delivery_date" 
+            formControlName="delivery_date"
+          >
+          <div class="error" *ngIf="projectForm.get('delivery_date')?.invalid && projectForm.get('delivery_date')?.touched">
+            <span *ngIf="projectForm.get('delivery_date')?.errors?.['required']">Delivery date is required</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" formControlName="status">
+            <option value="pending">Pending</option>
+            <option value="in progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button 
+            type="submit" 
+            [disabled]="projectForm.invalid || submitting"
+            class="btn-submit"
+          >
+            {{ submitting ? 'Saving...' : (isEditMode ? 'Update Project' : 'Create Project') }}
+          </button>
+          <button 
+            type="button" 
+            routerLink="/projects" 
+            class="btn-cancel"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
