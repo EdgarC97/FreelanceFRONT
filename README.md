@@ -1,59 +1,93 @@
-# FreelanceManagementFrontend
+# 🧩 Freelance Management Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+This is the **frontend SPA** built in **Angular 19** for the Freelance Project Management system. It connects with a PHP/MySQL backend and allows freelancers to register, log in, and manage their projects and associated files.
 
-## Development server
+> 🛠️ Built with Angular CLI v19.2.5  
+> 🎯 Backend API: [`http://localhost:8000`](http://localhost:8000)  
+> 👨‍💻 Frontend Dev Server: [`http://localhost:4200`](http://localhost:4200)
 
-To start a local development server, run:
+---
+
+## 🚀 Features
+
+- 🔐 Authentication (Register/Login) with JWT
+- 📁 Create, view, edit and delete projects
+- 📎 Upload, list, download and delete files per project
+- 🧭 Modular architecture with routing and lazy loading
+- 🎨 SCSS styling and responsive layout
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the development server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser at:  
+👉 `http://localhost:4200`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧪 API Integration
 
-```bash
-ng generate component component-name
+Make sure the backend is running at `http://localhost:8000`.  
+All API requests are made to this backend (see `environment.ts`).
+
+To test endpoints manually, use Postman or cURL:
+- `POST /register`
+- `POST /login`
+- `GET /projects`
+- etc.
+
+---
+
+## 🧱 Project Structure
+
+```
+src/
+│
+├── app/
+│   ├── core/         → Auth, Interceptors, Guards
+│   ├── shared/       → Reusable components (e.g. Header)
+│   ├── features/
+│   │   ├── auth/     → Login/Register modules
+│   │   └── projects/ → Project CRUD & file upload
+│   ├── app-routing.module.ts
+│   └── app.component.ts
+│
+└── environments/
+    └── environment.ts
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📎 Environment Configuration
 
-```bash
-ng generate --help
+Check your `src/environments/environment.ts` file to configure API URLs and options:
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8000'
+};
 ```
 
-## Building
+---
 
-To build the project run:
+## 📚 Learn More
 
-```bash
-ng build
-```
+- [Angular Docs](https://angular.dev/)
+- [Angular CLI](https://angular.dev/tools/cli)
+- [TypeScript](https://www.typescriptlang.org/)
+- [RxJS](https://rxjs.dev/)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+¿Querés que te genere también uno para el backend (`FreelanceBACK`) incluyendo rutas y ejemplos de cuerpos JSON?
